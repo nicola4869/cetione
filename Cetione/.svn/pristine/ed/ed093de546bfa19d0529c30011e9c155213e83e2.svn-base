@@ -1,0 +1,65 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+    @Styles.Render("~/Content/basedatamanage")
+    @Scripts.Render("~/bundles/basedatamanage")
+
+    <!--js和css定制区域-->
+    @RenderSection("Header", false)
+
+    <style type="text/css">
+        .datagrid-header-row .datagrid-cell-group
+        {
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .datagrid-header td
+        {
+            height: 30px;
+        }
+
+        .btn-group
+        {
+            font-size: 12px;
+            white-space: nowrap;
+            /*font-size: 13px;
+            font-family: '雅黑';*/
+        }
+    </style>
+
+</head>
+<body>
+
+    <div class="easyui-layout" data-options="fit:true,border:false">
+        <div id="divTop" data-options="region:'north',border:false" style="width: 100%; height: auto;">
+            <div class="easyui-layout" data-options="fit:true,border:false">
+                <div data-options="region:'center'" style="width: auto; border: none;">
+                    <!--查询条件-->
+                    @RenderSection("QueryCondition", false)
+                </div>
+            </div>
+        </div>
+
+        <div data-options="region:'center'" style="border: none;">
+            <!--表格区-->
+            <table id="easyui-datagrid" style="width: 100%; height: 100%;" toolbar="#gridtoolbar"></table>
+        </div>
+
+        <div id="gridtoolbar">
+            <!--表格操作按键-->
+            @RenderSection("ButtonArea", false)
+        </div>
+    </div>
+
+    <!--其它区域-->
+    @RenderSection("Other", false)
+
+</body>
+</html>

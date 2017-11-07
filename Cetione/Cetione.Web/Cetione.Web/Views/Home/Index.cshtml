@@ -1,0 +1,114 @@
+﻿@{
+    //ViewBag.Title = "主界面";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Cetione</title>
+    @*@Styles.Render("~/Content/main")*@
+
+    <link href="~/Content/Styles/accordion.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/Styles/framework.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/Styles/startmenu.css" rel="stylesheet" type="text/css" />
+
+    <script src="~/Content/Scripts/jquery/jquery-1.8.2.js"></script>
+    <script src="~/Content/Scripts/framework.js"></script>
+    <script src="~/Content/Scripts/lhgdialog/lhgdialog.min.js"></script>
+    <script src="~/Content/Scripts/js/main.js"></script>
+
+</head>
+<body onselectstart="return false;" style="-moz-user-select: none; overflow: hidden;">
+    <div class="header">
+       @* <div class="logo fleft">
+            <img src="~/Content/Images/Mini.png" />
+        </div>*@
+        <div id="brandlogo" class="logo fleft">
+            <img src="~/Content/Images/Logo32.png"  style="float: left;"/>
+            <a  style="font-family:Helvetica, Georgia, Arial, sans-serif, 黑体;color:#f3f6f4;font-size:18px;padding-left:5px;">    
+                Cetione
+            </a>
+             @*Cetione*@
+        </div>
+                
+        <div id="Headermenu">
+            <ul id="topnav">
+                <li id="metnav_1" class="list">
+                    <a id="nav_1" onclick="ClickMenu();">
+                        <span class="c1">
+                        </span>
+                        个人中心
+                    </a>
+                </li>
+                <li id="metnav_3" class="list droppopup">
+                    <a id="nav_3">
+                        <span class="c3"></span>帮助
+                    </a>
+                </li>
+                <li id="metnav_4" class="list" onclick="IndexOut();">
+                    <a id="nav_4">
+                        <span class="c4"></span>
+                        安全退出
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="taskbarTabs">
+        <div style="float: left; border-right: 1px solid #d3d3d3; margin-right: 0px; float: left; width: 204px;background:#303030;">
+            <div id="navigationtitle" style="float: left; font-size: 14px; font-weight: 400; color: #ffffff; padding-left: 10px;">
+                <div id="CurrentTime">
+                    欢迎您: @ViewBag.UserName
+                </div>
+            </div>
+            <div disabled style="float: right;" class="btn-nav-toggle">
+                <i></i>
+                <b></b>
+            </div>
+        </div>
+        <div style="float: left">
+            <div id="dww-menu" class="mod-tab">
+                <div class="mod-hd">
+                    <ul id="tabs_container" class="tab-nav"></ul>
+                </div>
+                <input id="ModuleId" type="hidden" />
+            </div>
+            <div class="rightMenu">
+                <ul>
+                    <li onclick="top.frames[tabiframeId()].Replace()">刷新当前页面</li>
+                    <li onclick="ThisCloseTab()">关闭当前页面</li>
+                    <li onclick="AllcloseTab()">关闭所有页面</li>
+                    <li onclick="othercloseTab()">关闭其它页面</li>
+                    <div class='m-split'></div>
+                    <li>退出</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="mainPannel">
+        <div class="navigation">
+            <ul id="accordion" class="accordion"></ul>
+        </div>
+        <div id="overlay_navigation"></div>
+        <div id="ContentPannel"></div>
+    </div>
+@*    <div id="footer" class="cs-south" style="height: 25px;">
+        <div class="number" style="width: 100%; text-align: center; float: left; line-height: 25px; font-size: 12px;">
+            &nbsp;深圳市罗湖区深南东路2105号  中建大厦1601室   电话 0755-82286606   传真 0755-82901081
+        </div>
+        <div class="clear"></div>
+    </div>*@
+    <!--载进度条start-->
+    <div id="loading_background" class="loading_background" style="display: none;"></div>
+    <div id="loading" onclick="Loading(false);">
+        <img src="/Content/Images/loading.gif" style="vertical-align: middle;" />&nbsp;<span>正在努力加载...</span>&nbsp;
+    </div>
+    <div id="loadingGird">
+        <img src="/Content/Images/loading.gif" style="vertical-align: middle;" />&nbsp;正在努力加载... &nbsp;
+    </div>
+    @*@Scripts.Render("~/bundles/main")*@
+</body>
+</html>

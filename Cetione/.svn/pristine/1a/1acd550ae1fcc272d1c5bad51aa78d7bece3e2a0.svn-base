@@ -1,0 +1,156 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+
+    <script src="~/Content/Scripts/js/Feddy.js"></script>
+
+    <style type="text/css">
+        .datagrid-header-row .datagrid-cell-group
+        {
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .datagrid-header td
+        {
+            height: 30px;
+        }
+
+        .btn-group
+        {
+            font-size: 12px;
+            white-space: nowrap;
+            /*font-size: 13px;
+            font-family: '雅黑';*/
+        }
+    </style>
+
+</head>
+<body>
+
+    <div class="easyui-layout" data-options="fit:true,border:false">
+        <div id="divTop" data-options="region:'north',border:false" style="width: 100%; height: auto;">
+            <div class="easyui-layout" data-options="fit:true,border:false">
+                <div data-options="region:'center'" style="width: auto; border: none;">
+                    <!--查询条件-->
+                  
+                </div>
+            </div>
+        </div>
+
+        <div data-options="region:'center'" style="border: none;">
+            <!--表格区-->
+            <table id="easyui-datagrid" style="width: 100%; height: 100%;" toolbar="#gridtoolbar"></table>
+        </div>
+
+        <div id="gridtoolbar">
+            <!--表格操作按键-->
+            <a id="lr-add" class="easyui-linkbutton" onclick="Add()" iconcls="icon-add" plain="true">新增</a>
+        </div>
+    </div>
+
+    <!--其它区域-->
+    <!--新增窗体-->
+    <div id="dlgadd"  title="新增"
+       >
+        <form id="frmadd" method="post">
+            <div style="margin-bottom: 15px">
+                <table border="0" style="margin: 0px 0px 0px 0px; width: 100%" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td align="left" width="50%" valign="top">
+                            <input class="easyui-textbox" id="UserCode" name="UserCode" style="width: 94%" data-options="label:'用户账号:',required:true,panelHeight:'auto'">*
+                        </td>
+                        <td align="left" width="50%" valign="top">
+                            <input class="easyui-textbox" id="AccountID" name="AccountID" style="width: 94%" data-options="label:'账套:',required:true,panelHeight:'auto',editable:false" value="@ViewBag.AccountID">*
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div style="margin-bottom: 15px">
+                <table border="0" style="margin: 0px 0px 0px 0px; width: 100%" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td align="left" width="50%" valign="top">
+                            <input class="easyui-textbox" id="UserName" name="UserName" style="width: 94%" data-options="label:'用户名:',required:true,panelHeight:'auto'">*
+                        </td>
+                        <td align="left" width="50%" valign="top">
+                            <input class="easyui-textbox" id="Pwd" name="Pwd" style="width: 94%" data-options="label:'密码:',required:true,panelHeight:'auto'">*
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div style="margin-bottom: 15px">
+                <table border="0" style="margin: 0px 0px 0px 0px; width: 100%" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td align="left" width="50%" valign="top">
+                            <input class="easyui-combobox" id="Employee" name="Employee" style="width: 94%" data-options="label:'员工编号:',required:true,panelHeight:'auto'">*
+                        </td>
+                        <td align="left" width="50%" valign="top">
+                            <input class="easyui-textbox" id="Phone" name="Phone" style="width: 94%" data-options="label:'手机号:',required:true,panelHeight:'auto'">*
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div style="margin-bottom: 15px">
+                <table border="0" style="margin: 0px 0px 0px 0px; width: 100%" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td align="left" width="50%" valign="top">
+                            <input class="easyui-combobox" id="Department" name="Department" style="width: 94%" data-options="label:'部门:',required:true,panelHeight:'auto'">*
+                        </td>
+                        <td align="left" width="50%" valign="top">
+                            <input class="easyui-combobox" id="Position" name="Position" style="width: 94%" data-options="label:'岗位:',required:true,panelHeight:'auto'">*
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div style="margin-bottom: 15px">
+                <table border="0" style="margin: 0px 0px 0px 0px; width: 100%" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td align="left" width="50%" valign="top">
+                            <input id="BeginDate" class="easyui-datebox" type="text" name="BeginDate" data-options="label:'生效日期:'" style="width: 250px;" />
+                            @*<input class="easyui-combobox" id="BeginDate" name="BeginDate" style="width: 94%" data-options="label:'生效日期:',required:true,panelHeight:'auto'">**@
+                        </td>
+                        <td align="left" valign="center">
+                            <input id="EndDate" class="easyui-datebox" type="text" name="EndDate" data-options="label:'失效日期:'" style="width: 250px;" />
+                        </td>
+                        @*<td align="left" width="50%" valign="top">
+                            <input class="easyui-combobox" id="EndDate" name="EndDate" style="width: 94%" data-options="label:'失效日期:',required:true,panelHeight:'auto'">*
+                        </td>*@
+                    </tr>
+                </table>
+            </div>
+            <div style="margin-bottom: 15px">
+                <table border="0" style="margin: 0px 0px 0px 0px; width: 100%" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td align="left" width="50%" valign="top">
+                            <select id="IsAdmin" class="easyui-combobox" name="IsAdmin" data-options="label:'管理员:',required:true,editable:false,panelHeight:'auto'" style="width: 94%">
+                                <option value="0" selected="selected">否</option>
+                                <option value="1" >是</option>
+                            </select>*
+                        </td>
+                        <td align="left" width="50%" valign="top">
+                            <select id="IsEnable" class="easyui-combobox" name="IsEnable" data-options="label:'启用状态:',required:true,editable:false,panelHeight:'auto'" style="width: 94%">
+                                <option value="0">不启用</option>
+                                <option value="1" selected="selected">启用</option>
+                            </select>*
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <input type="hidden" name="actiontype" id="actiontype" />
+            <input type="hidden" name="KeyID" id="KeyID" />
+        </form>
+    </div>
+
+    <div id="dlg-buttons">
+        <a href="#" class="easyui-linkbutton" style="width: 60px;" onclick="Save()">保存</a>
+        <a href="#" class="easyui-linkbutton" style="width: 60px;" onclick="javascript: $('#dlgadd').dialog('close')">取消</a>
+    </div>
+
+</body>
+</html>

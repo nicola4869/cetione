@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    @Styles.Render("~/Content/basedatamanage")
+    @Scripts.Render("~/bundles/basedatamanage")
+    <script src="~/Content/Scripts/js/System/MenuLimits.js"></script>
+</head>
+<body>
+
+
+        <div id="dlg-buttons">
+
+            <table>
+                    <tr>
+                        <td align="left" width="200px" valign="top">
+                            <input text-align="left" class="easyui-textbox" id="AccountID" name="AccountID" style="width: 190px" data-options="label:'账套:'" value="@ViewBag.AccountID">*
+                        </td>
+                        <td align="left" width="60px" valign="top">
+                            <a href="#" class="easyui-linkbutton" style="width: 80px;margin-left:5px;" onclick="AddMenu()">递增授权</a>
+       
+
+                        </td>
+                        <td width="60pxpx" >
+                             <a href="#" class="easyui-linkbutton" style="width: 80px;margin-left:10px;" onclick="ResetMenu()">重新授权</a>
+                        </td>
+                    </tr>
+
+                </table>
+
+            @*<table border="0" style="margin: 0px 0px 0px 0px; width: 100%" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td align="left" width="160px" valign="top">
+                            <input class="easyui-textbox" id="AccountID" name="AccountID" style="width: 160px" data-options="label:'账套:'" value="@ViewBag.AccountID">*
+                        </td>
+                        <td align="left" width="160px" valign="top">
+                            <a href="#" class="easyui-linkbutton" style="width: 80px;" onclick="Save()">递增授权</a>
+        <a href="#" class="easyui-linkbutton" style="width: 80px;" onclick="javascript: $('#dlgadd').dialog('close')">重新授权</a>
+
+                        </td>
+                    </tr>
+                </table>*@
+
+    </div>
+
+</body>
+</html>

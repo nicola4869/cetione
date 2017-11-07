@@ -1,0 +1,112 @@
+﻿
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Cetione</title>
+    <link href="~/Content/Styles/login.css" rel="stylesheet" type="text/css" />
+    <script src="~/Content/Scripts/js/login.js"></script>
+
+</head>
+<body>
+    <div class="top">
+        <table style="width:100%">
+            <tr>
+                <td>
+                    <div id="topone">
+
+                    </div>
+                </td>
+                <td>
+                    <div id="toptwo">
+                        <ul>
+                            <li>
+                                <a href="http://www.cetione.com" target="_blank" style="color:#dcdada;font-family:Microsoft YaHei;">商学院</a>
+                            </li>
+                            <li>&nbsp;&nbsp;|&nbsp;&nbsp;</li>
+                            <li>
+                                <a href="http://www.cetione.com" target="_blank" style="color:#dcdada;font-family:Microsoft YaHei;">帮助中心</a>
+                            </li>
+                            <li>&nbsp;&nbsp;|&nbsp;&nbsp;</li>
+                            <li>
+                                <a href="http://www.cetione.com" target="_blank" style="color:#dcdada;font-family:Microsoft YaHei;">关于我们</a>
+                            </li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+
+        </table>
+    </div>
+    <div class="nav">
+        <table style ="width: 100%; height: 20%;text-align:left;">
+            <tr>
+                <td style="width: 20%;">
+                    
+                </td>
+                <td style="vertical-align:bottom; width: 60%;">
+                    <div style="font-size: 40px;color:#dcdada;font-family:Microsoft Yahei"><span>五金行业智能制造&nbsp;"云管家"&nbsp;服务平台</span></div>
+                </td>
+                <td style="width: 20%;"></td>
+            </tr>
+        </table>
+
+        <table style="width: 100%; height: 55%;">
+            <tr>
+                <td style="vertical-align:top;text-align:left;">
+                    <form method="post" action="/Login/CheckLogin/" >
+                        <div class="content">
+                            <div class="Loginform">
+                                @*<div class="form-message">
+                    </div>*@
+                                <div><span style="color:#494949;font-family:Microsoft Yahei;">用户</span></div>
+                                <div class="form-account">
+                                    <input id="username" name="username" type="text" />
+                                </div>
+                                <div><span style="color:#494949;font-family:Microsoft Yahei;">密码</span></div>
+                                <div class="form-password">
+                                    <input id="password" name="password" type="password" />
+                                </div>
+                                <table style="float:left;font-family:Microsoft Yahei;">
+
+                                    <tr>
+                                        <td>
+                                            <div style="float:left;width:135px;"><input id="verificationcode" name="verificationcode" type="text" placeholder="验证码" size="22" onclick="this.value='';focus()" /></div>
+                                            <input type="button" id="code" onclick="createCode()" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="submit" id="btlogin" class="btlogin" value="登&nbsp录" onclick="return login()" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div style="width:260px;height:20px;margin-top:15px;">
+                                                <div style="float:left;"><a href="http://www.cetione.com" target="_blank" style="color:#494949;text-decoration:underline;">立即体验</a></div>
+                                                <div style="float:right"><a href="http://www.cetione.com" target="_blank" style="color:#494949;text-decoration:underline;">忘记密码?</a></div>
+
+                                            </div>
+
+                                        </td>
+                                    </tr>
+
+                                </table>
+                            </div>
+                        </div>
+                    </form>
+                </td>
+            </tr>
+        </table>
+
+        <table style="width: 100%; ">
+            <tr>
+                <td>
+                   
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="foot"><p style="color:#dcdada;margin-top:3px;font-family:Microsoft YaHei;">鲸座科技(深圳)有限公司</p></div>
+</body>
+</html>

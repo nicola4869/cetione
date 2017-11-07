@@ -1,0 +1,138 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9" />
+    <title>登录</title>
+
+    <link href="~/Content/Styles/login.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/Styles/login_1.css" rel="stylesheet" type="text/css" />
+    <script src="~/Content/Scripts/jquery/jquery-1.8.2.js"></script>
+    <script src="~/Content/Scripts/js/login.js"></script>
+
+    <script>
+
+    window.onload = function () {
+        document.getElementById("username").focus();
+        createCode();
+    };
+
+    var code; //在全局定义验证码
+    function createCode() {
+        code = "";
+        var codeLength = 4; //验证码的长度
+        var checkCode = document.getElementById("code");
+        var random = new Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R',
+         'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'); //随机数
+        for (var i = 0; i < codeLength; i++) { //循环操作
+            var index = Math.floor(Math.random() * 36); //取得随机数的索引（0~35）
+            code += random[index]; //根据索引取得随机数加到code上
+        }
+        checkCode.value = code; //把code值赋给验证码
+    }
+
+    function login() {
+        var event = event || window.event;
+        var txtverificationcode = $("#verificationcode").val();
+        var code = $("#code").val();
+
+        if (txtverificationcode == "") {
+            alert('验证码不能为空！');
+            window.event.returnValue = false; // 兼容IE6~8
+        } else if (txtverificationcode != code) {
+            alert('验证码错误！');
+            window.event.returnValue = false; // 兼容IE6~8
+        }
+    }
+
+    </script>
+</head>
+<body class="Loginbody">
+    @*log*@
+    <div id="top" style="width:auto;height:80px;border:1px solid #ffd800">
+        <a href="http://www.cetione.com" target="_blank">
+
+            <div id="topone">
+
+            </div>
+        </a>
+        <div id="toptwo">
+            <ul>
+                <li>
+                    <a href="http://www.cetione.com" target="_blank">商学院</a>
+                </li>
+                <li>&nbsp;|&nbsp;</li>
+                <li>
+                    <a href="http://www.cetione.com" target="_blank">帮助中心</a>
+                </li>
+                <li>&nbsp;|&nbsp;</li>
+                <li>
+                    <a href="http://www.cetione.com" target="_blank">关于我们</a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+    @*titie*@
+    <div style="width:auto;height:664px;border:1px solid #ffd800">
+        <div class="logo">
+            <div style="margin-right:714px;">
+                <span>五金行业智能制造&nbsp;"云管家"&nbsp;服务平台</span>
+
+            </div>
+
+        </div>
+
+        <form method="post" action="/Login/CheckLogin/">
+            <div class="logo">
+            </div>
+            <div class="content">
+                <div class="Loginform">
+                    @*<div class="form-message">
+                    </div>*@
+                    <div><span>用户</span></div>
+                    <div class="form-account">
+                        <input id="username" name="username" type="text" />
+                    </div>
+                    <div><span>密码</span></div>
+                    <div class="form-password">
+                        <input id="password" name="password" type="password" />
+                    </div>
+                    <table style="float:left">
+
+                        <tr>
+                            <td>
+                                <div style="float:left"><input id="verificationcode" name="verificationcode" type="text" placeholder="验证码" size="22" onclick="this.value='';focus()" /></div>
+                                <input type="button" id="code" onclick="createCode()" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="submit" id="btlogin" class="btlogin" value="登录" onclick="login()" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div style="width:260px;height:20px;">
+                                    <div style="float:left;"><a href="http://www.cetione.com" target="_blank">立即体验</a></div>
+                                    <div style="float:right"><a href="http://www.cetione.com" target="_blank">忘记密码?</a></div>
+
+                                </div>
+
+                            </td>
+                        </tr>
+
+                    </table>
+                </div>
+            </div>
+            </form>
+
+</div>
+    @*底部*@
+    <div id="bottom">
+        <span>
+            鲸座科技(深圳)有限公司
+        </span>
+    </div>
+</body>
+</html>

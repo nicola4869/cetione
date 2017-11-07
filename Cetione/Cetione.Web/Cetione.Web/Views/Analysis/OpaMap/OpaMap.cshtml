@@ -1,0 +1,222 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <script src="~/Content/Scripts/js/OpaMap.js"></script>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+	<style type="text/css">
+		body, html {width: 99.5%;height: 99%;font-family:"微软雅黑";border-top:10px;}
+        #left {
+            width: 250px;
+            height: 100%;
+            background: #dbdbec;
+            float:left;
+            /*max-width:250px;*/
+            /*margin: 10px ;*/
+        }
+		#allmap{
+            /*width:86%;*/
+            height:100%;
+            /*margin: 10px ;*/
+            /*float:right;*/
+
+		}
+	</style>
+    <style type="text/css">
+        .tb_Search input{ 
+            width:200px; 
+            height:30px;
+            margin-left:5px;
+            margin-top:5px; 
+            /*background:url(../img/kuan_01.jpg) no-repeat;*/ 
+            border:none; 
+            float:left}
+        .bt_Search input{ 
+            width:32px; 
+            height:32px; 
+            margin-top:5px; 
+            /*background: #31e14a;*/
+            background:url(../../content/images/Search.png);
+            border:none;  
+            float:left}
+
+        .supplier_bg{
+            margin:5px;
+            /*margin-top:50px;*/
+            width: 240px;
+            /*height: 150px;*/
+            background-color: white;
+            }
+        .supplier_bg:hover{
+            background-color: #7ca2f1;
+            }
+    </style>
+
+
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=Ujx4vaqwa7EkWRSgVDwlwOFCqnTH3XGp"></script>
+	<title>鲸座科技</title>
+</head>
+<body>
+    <div id="left">
+        <div class="tb_Search"><input id="tb" type="text" placeholder="搜供应商" onkeyup="fun_Search()"/></div><!--搜索框-->
+        <div class="bt_Search"><input name="" type="button"  onclick="fun_Search()"/></div><!--搜索按钮-->
+@*        <div class="supplier_bg">
+            <span >
+                <a>东莞晟起精密模具配件有限公司</a>
+                <a>HRC能力：80%</a>
+                <a>即时交货：2017/09/15</a>
+                <a>距离：18KM</a>
+            </span>
+
+        </div>*@
+        <div style="margin-top:50px">
+            <table id="ShengQi" class="supplier_bg" onclick="fun_ShengQi()">
+                <tr style="color:#033081;font-size:16px;">
+                    <td colspan="2" >东莞晟起精密模具配件有限公司</td>
+                </tr>
+                <tr style="color:#033081;font-size:10px;margin-top:2px;">
+                    <td style="width:50%;">HRC能力：80%</td>
+                    <td>平均交期：36H</td>
+                </tr >
+                <tr style="color:#033081;font-size:10px;margin-top:2px;">
+                    <td colspan="2">即时交货：2017/09/15</td>
+                </tr >
+                <tr style="color:#f00;font-size:10px;margin-top:2px;">
+                    <td>距离：18KM</td>
+                </tr>
+            </table>
+            <table id="YiZhong" class="supplier_bg" onclick="fun_YiZhong()">
+                <tr style="color:#033081;font-size:16px;">
+                    <td colspan="2" >东莞市长安一中精密模具厂</td>
+                </tr>
+                <tr style="color:#033081;font-size:10px;margin-top:2px;">
+                    <td style="width:50%;">HRC能力：70%</td>
+                    <td>平均交期：12H</td>
+                </tr >
+                <tr style="color:#033081;font-size:10px;margin-top:2px;">
+                    <td colspan="2">即时交货：2017/09/20</td>
+                </tr >
+                <tr style="color:#f00;font-size:10px;margin-top:2px;">
+                    <td>距离：10KM</td>
+                </tr>
+            </table>
+            <table id="JinLin" class="supplier_bg" onclick="fun_JinLin()">
+                <tr style="color:#033081;font-size:16px;">
+                    <td colspan="2" >东莞市长安金林精密模具厂</td>
+                </tr>
+                <tr style="color:#033081;font-size:10px;margin-top:2px;">
+                    <td style="width:50%;">HRC能力：68%</td>
+                    <td>平均交期：14H</td>
+                </tr >
+                <tr style="color:#033081;font-size:10px;margin-top:2px;">
+                    <td colspan="2">即时交货：2017/09/21</td>
+                </tr >
+                <tr style="color:#f00;font-size:10px;margin-top:2px;">
+                    <td>距离：5KM</td>
+                </tr>
+            </table>
+            <table id="LiHua" class="supplier_bg" onclick="fun_LiHua()">
+                <tr style="color:#033081;font-size:16px;">
+                    <td colspan="2" >东莞市长安丽华精密模具厂</td>
+                </tr>
+                <tr style="color:#033081;font-size:10px;margin-top:2px;">
+                    <td style="width:50%;">HRC能力：65%</td>
+                    <td>平均交期：14H</td>
+                </tr >
+                <tr style="color:#033081;font-size:10px;margin-top:2px;">
+                    <td colspan="2">即时交货：2017/09/21</td>
+                </tr >
+                <tr style="color:#f00;font-size:10px;margin-top:2px;">
+                    <td>距离：21KM</td>
+                </tr>
+            </table>
+            <table id="JingChen" class="supplier_bg" onclick="fun_JingChen()">
+                <tr style="color:#033081;font-size:16px;">
+                    <td colspan="2" >东莞市长安精晨精密模具加工厂</td>
+                </tr>
+                <tr style="color:#033081;font-size:10px;margin-top:2px;">
+                    <td style="width:50%;">HRC能力：70%</td>
+                    <td>平均交期：18H</td>
+                </tr >
+                <tr style="color:#033081;font-size:10px;margin-top:2px;">
+                    <td colspan="2">即时交货：2017/09/21</td>
+                </tr >
+                <tr style="color:#f00;font-size:10px;margin-top:2px;">
+                    <td>距离：13KM</td>
+                </tr>
+            </table>
+            <table id="JinHui" class="supplier_bg" onclick="fun_JinHui()">
+                <tr style="color:#033081;font-size:16px;">
+                    <td colspan="2" >金辉电控设备厂</td>
+                </tr>
+                <tr style="color:#033081;font-size:10px;margin-top:2px;">
+                    <td style="width:50%;">HRC能力：65%</td>
+                    <td>平均交期：24H</td>
+                </tr >
+                <tr style="color:#033081;font-size:10px;margin-top:2px;">
+                    <td colspan="2">即时交货：2017/09/21</td>
+                </tr >
+                <tr style="color:#f00;font-size:10px;margin-top:2px;">
+                    <td>距离：41KM</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    @*<div id="right">right</div>*@
+	<div id="allmap" ></div>
+</body>
+</html>
+
+@*<script type="text/javascript" >
+
+    function fun_Search() {
+        var Supplier = document.getElementById('tb').value;//取供应商
+
+        // 百度地图API功能
+        var map = new BMap.Map("allmap");
+
+        //生成地图
+        if (Supplier == "长安") {
+            var point = new BMap.Point(113.748174, 22.775898);
+            var marker = new BMap.Marker(point);  // 创建标注
+            map.addOverlay(marker);              // 将标注添加到地图中
+            map.centerAndZoom(point, 15);
+            var opts = {
+                width: 280,     // 信息窗口宽度
+                height: 100,     // 信息窗口高度
+                title: "东莞市长安浙中钢材营业部", // 信息窗口标题
+                enableMessage: true,//设置允许信息窗发送短息
+                message: "地址：长安镇金铭国际八栋12号<br/>主营：高速鋼 沖子料 模板 ASP23等<br/>平均交货周期：12H  准时交货率：90%"
+            }
+            var infoWindow = new BMap.InfoWindow("地址：长安镇金铭国际八栋12号<br/>主营：高速鋼 沖子料 模板 ASP23等<br/>平均交货周期：12H  准时交货率：90%", opts);  // 创建信息窗口对象 
+            marker.addEventListener("click", function () {
+                map.openInfoWindow(infoWindow, point); //开启信息窗口
+            }
+            );
+
+        } else if (Supplier == "鲸座") {
+
+            var point = new BMap.Point(114.129148, 22.549716);
+            var marker = new BMap.Marker(point);  // 创建标注
+            map.addOverlay(marker);              // 将标注添加到地图中
+            map.centerAndZoom(point, 15);
+            var opts = {
+                width: 280,     // 信息窗口宽度
+                height: 100,     // 信息窗口高度
+                title: "鲸座科技有限公司", // 信息窗口标题
+                enableMessage: true,//设置允许信息窗发送短息
+                message: "地址：深圳市罗湖区深南东路中建大厦1601"
+            }
+            var infoWindow = new BMap.InfoWindow("地址：深圳市罗湖区深南东路中建大厦1601", opts);  // 创建信息窗口对象 
+            marker.addEventListener("click", function () {
+                map.openInfoWindow(infoWindow, point); //开启信息窗口
+            }
+            );
+        } else {
+
+        }
+
+        
+    }
+
+</script>*@
