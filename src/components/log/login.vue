@@ -27,6 +27,10 @@
       <el-form-item class="submitBtn">
         <el-button type="danger" @click="submitForm('ruleForm')">登陆</el-button>
       </el-form-item>
+      <el-form-item>
+        <span>立即体验</span>
+        <span>忘记密码？</span>
+      </el-form-item>
     </el-form>
   </el-row>
 </template>
@@ -79,15 +83,49 @@
         var _this = this;
         _this.loginSucess();
       },
+
+//      loginAct: function () {
+//        this.removeCookie();
+//        var _this = this;
+//        this.$ajax({
+//            url: api.login,
+//            method: 'post',
+//            data: {
+//              agent_name: _this.ruleForm.agent_name,
+//              pwd: _this.ruleForm.pwd,
+//              captcha: _this.ruleForm.captcha
+//            }
+//          })
+//          .then(function (response) {
+//            if(response.data.data.code==400){
+//              alert(response.data.message)
+//            }
+//            if(response.data.code==200){
+//              _this.userData = response.data.data;
+//              var value = _this.userData.access_token;
+//              //save cookies
+//              var time = 7 * 24 * 60 * 60 * 1000;
+//              _this.savecookie(value, time);
+////                        存cookie end
+////                       存Login status start
+//              _this.$store.dispatch('getLoginData', {'loginScale': _this.userData.scale});
+////                       存Login status end
+//
+//              _this.successLogin();
+//            }
+//
+//          })
+//      },
       loginSucess(){
-        this.$router.push('/');
-        window.location.href = 'http://www.cetione.com/'
+        var _this = this
+        _this.$router.push('/');
+//        window.location.href = 'http://www.cetione.com/'
       }
     }
   })
 </script>
 
-<style lang="scss" scoped>
+<style>
   body{
     width:100%;
     margin:0;
@@ -97,6 +135,39 @@
     background-size:100%;
   }
 
+  .c-login{
+    position: relative;
+  }
 
+  .el-row {
+    padding-top: 6.5%;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow-y: auto;
+  }
+  .submitBtn{
+    text-align: center;
+  }
+  .main {
+    padding: 20px;
+  }
+
+  .el-form{
+    width: 300px;
+    height: 400px;
+    background: #fff;
+    position: absolute;
+    right: 60px;
+    top: 200px;
+    border-radius: 5px;
+  }
+
+  .el-input{
+    width: 225px;
+  }
 
 </style>
